@@ -1,0 +1,13 @@
+{# templates/show/comments.html.twig #}
+
+{% for comment in comments %}
+    <div class="comment">
+        <p>{{ comment.user.firstName }} {{ comment.user.lastName }} ({{ comment.stars }} étoiles)</p>
+        <p>{{ comment.review }}</p>
+        {% if is_granted('ROLE_ADMIN') and not comment.validated %}
+            <form action="{{ path('comment_validate', {'id': comment.id}) }}" method="post">
+                <button type="submit">Valider le commentaire</button>
+            </form>
+        {% endif %}
+    </div>
+{% endfor %}

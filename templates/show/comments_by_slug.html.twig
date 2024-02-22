@@ -1,0 +1,19 @@
+{# templates/show/comments_by_slug.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Commentaires pour {{ show.title }}{% endblock %}
+
+{% block body %}
+<h1>Commentaires pour {{ show.title }}</h1>
+
+{% for comment in comments %}
+    <div class="comment">
+        <p><strong>{{ comment.user.firstName }} {{ comment.user.lastName }}</strong> ({{ comment.stars }} étoiles)</p>
+        <p>{{ comment.review }}</p>
+    </div>
+{% else %}
+    <p>Aucun commentaire pour ce spectacle.</p>
+{% endfor %}
+
+{% endblock %}

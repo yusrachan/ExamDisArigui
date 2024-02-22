@@ -1,0 +1,9 @@
+{# templates/show/view.html.twig #}
+
+{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+    {{ form_start(form) }}
+        {{ form_row(form.review) }}
+        {{ form_row(form.stars) }}
+        <button type="submit">Publier le commentaire</button>
+    {{ form_end(form) }}
+{% endif %}
